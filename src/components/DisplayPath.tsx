@@ -5,7 +5,7 @@ export default function DisplayPath({ path }: { path: string }) {
     const links = path.split('/');
 
     return (
-        <div className="mt-10 w-5/6 flex">
+        <div className="flex">
             {
                 links.map((link, index) => {
                     const ref = links.slice(0, index + 1).join('/');

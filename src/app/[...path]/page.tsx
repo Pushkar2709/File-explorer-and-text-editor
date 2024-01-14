@@ -1,5 +1,6 @@
 import DisplayFiles from "@/components/DisplayFiles";
 import DisplayPath from "@/components/DisplayPath";
+import New from "@/components/New";
 import TextEditor from "@/components/TextEditor";
 import { readFileSync, statSync } from "fs";
 
@@ -13,7 +14,13 @@ export default function Page({ params }: { params: { path: string[] } }) {
 
     return (
         <div className="h-screen w-screen flex flex-col items-center">
-            <DisplayPath path={`./${path}`} />
+            <div className="flex w-5/6 mt-10">
+                <DisplayPath path={`./${path}`} />
+                <div className="ml-auto">
+                    <New isFolder={false} path={path} />
+                    <New isFolder={true} path={path} />
+                </div>
+            </div>
             {
                 isDir ?
                     <DisplayFiles dir={`${path}`} /> :
